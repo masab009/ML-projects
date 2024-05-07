@@ -97,7 +97,7 @@ vector<vector <string>> preprocess_text_data(vector<vector <string>> elements_ar
     }
     return elements_array_2d;
 }
-//preprocess the text data again
+//preprocess the text data again(there were some errors such as "vector subscript out of range" if I modified the previous preprocessing function by adding new words)
 vector<vector <string>> preprocess_text_data_2(vector<vector <string>> elements_array_2d) {
     vector<string>stop_words{ "Purchased", "invested","Hired",
         "a","in","an","of","and",
@@ -359,33 +359,12 @@ void naive_bayes(vector<string>expenses, vector<string>expensesClasses) {
 
 //Musab's classifier in one function
 void main_console_classifier() {
-
-    cout << "\t" << endl;
-    cout << "Welcome to OTTO " << endl;
-    cout << "Do you want to use the bookkeeper or the SUPERIOR EXPENSE CLASSIFIER(a/b)" << endl;
-    char c;
-    cin >> c;
-    clear_n();
-    while (true) {
-
-
-        if (c == 'a') {
-            enter_transactions();
-            break;
-        }
-        else if (c == 'b') {
             string filepath = "Your path to the CSV file";
             vector<string>expenses = generate_expenses(filepath);
             vector<string>expenseClasses = generate_expense_classes(filepath);
             naive_bayes(expenses, expenseClasses);
-            break;
-        }
-        else {
-            cout << "Invalid input try again brother " << endl;
-        }
-        cin >> c;
-        clear_n();
-    }
+
+    
 }
 // call the main_console_classifier in the main function, you can write your own main function as per your choice
-// Kindly look at my work and kindly give me your critique after looking at my work
+// Kindly look at my work and kindly give me your critique after looking at it
